@@ -12,7 +12,28 @@ export default {
   props: {
     msg: String,
     message: String
+  },
+  watch: {
+        message: function(val, oldVal) {
+            const pool = 'y,o,u,m,a,k,e,m,e,h,a,p,p,y,j,d,&,o,c,h,2,j,#,f,d,6,9,f,q,b,a,k,5,3,g,6,4,l,o,o,i,7,z,x,@,l,8,c,s,g,i,n,i,w,w,l,1,r,v,v,n,o,s,a,b,e,t,t,e,r'.split(',');
+
+const target = val.split('');
+
+for (let i = 0; i < target.length; i++) {
+  const char = target[i];
+  const found = pool.indexOf(char);
+
+  if (char !== ' ' && found === -1) {
+    this.message = 'could not complete phrase';
+    return;
   }
+
+  delete pool[found];
+}
+
+this.message = 'phrase can be made!';
+        }
+    }
 }
 </script>
 
