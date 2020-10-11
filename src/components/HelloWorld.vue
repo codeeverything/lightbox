@@ -1,7 +1,9 @@
 <template>
+  <div>
   {{ msg }}
   <input type="text" v-model="message"><br>
   Output: <span>{{ message }}</span>
+  </div>
 </template>
 
 <script>
